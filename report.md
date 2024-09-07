@@ -68,16 +68,54 @@ class URLFinder(PathEntryFinder):
             return None
 ```
 
-Запуск локального сервера с модулем:
+Запуск локального сервера с модулем:\
 ![alt text](image-1.png)
 
-Подключение к серверу и импорт (и исполнение функции) модуля:
+Подключение к серверу и импорт (и исполнение функции) модуля:\
 ![alt text](image-2.png)
 
-Исполнение скрипта:
+Исполнение скрипта:\
 ![alt text](image-4.png)
 
 ### 1.1 Переписать содержимое функции url_hook, класса URLLoader с помощью модуля requests (см. комменты).
 
+Добавляем импорт модуля:
+```
+from requests import get
+```
+
+Меняем функцию под модуль request:
+```
+  with get(some_str) as page:
+        data = page.text
+```
+### 1.2 Задание со звездочкой (*): реализовать обработку исключения в ситуации, когда хост (где лежит модуль) недоступен.
+
+Обработка исключения была исполнена с помощью "try и except", с функцией "sys.exit"
+```
+def url_hook(some_str):
+      
+    if not some_str.startswith(("http", "https")):
+        raise ImportError
+    try:
+        with get(some_str) as page:
+            data = page.text
+        filenames = re.findall("[a-zA-Z_][a-zA-Z0-9_]*.py", data)
+        modnames = {name[:-3] for name in filenames}
+        return URLFinder(some_str, modnames)
+    except:
+        sys.exit(f"URL adress {some_str} error")
+```
+Вывод: ![alt text](image-3.png)
 
 ### 2. удаленный импорт пакета
+
+Для удаленного импорта пакета создаем пакет
+Для этого создаем файл \_\_init__.py в папке rootserver:
+```
+from myremotemodule import myfoo
+
+myfoo()
+```
+
+    

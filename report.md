@@ -118,5 +118,4 @@ from myremotemodule import myfoo
 myfoo()
 ```
 
-# Я НА ВЫХОДНЫХ ДОДЕЛАЮ ЧЕСТНО-ЧЕСТНО    0_о
-    ы
+# НЕ ДОДЕЛАНО

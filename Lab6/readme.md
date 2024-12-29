@@ -4,10 +4,10 @@
 ### Выполнено:
 Применены декораторы для реализации:
 1. получения базовой версии для получения информации о валютах в формате словаря:
-![alt text](image.png)
+![alt text](images/image.png)
 2. получеия базовой версии для получения информации о валютах в формате словаря с структурой описаной в лр5:
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 3. получения в формате JSON:
-![alt text](image-2.png)
+![alt text](images/image-2.png)
 4. получения в формате CSV:ы
-![alt text](image-3.png)
+![alt text](images/image-3.png)
